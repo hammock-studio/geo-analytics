@@ -1,0 +1,16 @@
+{
+  "mappings":{
+    "doc_type": "the doc type name",
+    "properties": {
+      "field_1": {
+
+      },
+      "field_2": {
+
+      }
+    }
+  },
+  "settings":{
+    
+  }
+}

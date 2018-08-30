@@ -1,2 +1,1 @@
-def searchfunc(query):
-    return query + " Yo"
+# from elasticsearch import Elasticsearch
