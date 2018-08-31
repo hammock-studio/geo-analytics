@@ -1,0 +1,122 @@
+{
+	"settings": {
+		"analysis": {
+			"analyzer": {
+				"std_english": {
+					"type": "standard",
+					"stopwords": "_english_"
+				}
+			}
+		}
+	},
+	"mappings": {
+		"tweets": {
+			"properties": {
+				"created_at": {
+          "type": "date",
+          "format": "date_hour_minute_second"
+        },
+				"timestamp_ms": {
+          "type": "date",
+          "format": "epoch_millis"
+        },
+				"lang": {
+          "type": "keyword"
+        },
+				"source": {
+          "type": "text",
+          "analyzer": "standard"
+        },
+				"text": {
+          "type": "text",
+          "analyzer": "standard"
+        },
+				"hashtags": {
+          "dynamic": "true",
+          "properties": {}
+        },
+				"place": {
+          "properties": {
+            "location": {
+              "type": "geo_shape",
+              "ignore_malformed": "true",
+              "precision": "200m"
+            },
+            "location_point": {
+              "type": "geo_point"
+            },
+            "country": {
+              "type": "text",
+              "analyzer": "standard",
+              "fields": {
+                "raw": {
+                  "type": "text",
+                  "analyzer": "keyword"
+                }
+              }
+            },
+            "country_code": {
+              "type": "keyword"
+            },
+            "full_name": {
+              "type": "text",
+              "analyzer": "standard"
+            },
+            "id": {
+              "type": "keyword"
+            },
+            "name": {
+              "type": "text",
+              "analyzer": "standard"
+            },
+            "place_type": {
+              "type": "keyword"
+            }
+          }
+				},
+				"user": {
+					"properties": {
+						"id": {
+              "type": "keyword"
+            },
+						"created_at": {
+              "type": "date",
+              "format": "date_hour_minute_second"
+            },
+						"name": {
+              "type": "text",
+              "analyzer": "standard"
+            },
+						"screen_name": {
+              "type": "text",
+              "analyzer": "standard"
+            },
+						"description": {
+              "type": "text",
+              "analyzer": "standard"
+            },
+						"location": {
+              "type": "text",
+              "analyzer": "standard",
+              "fields": {
+                "raw": {
+                  "type": "text",
+                  "analyzer": "keyword"
+                }
+              }
+            },
+						"profile_image_url_https": {
+              "type": "keyword"
+            },
+						"lang": {
+              "type": "keyword"
+            },
+						"followers_count": {
+              "type": "integer"
+            }
+					}
+				}
+			}
+		}
+	}
+}
